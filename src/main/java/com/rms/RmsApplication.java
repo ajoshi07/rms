@@ -11,7 +11,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 @EnableCircuitBreaker
 public class RmsApplication {
 
-	static Logger logger = LoggerFactory.getLogger(RateController.class);
+	static Logger logger = LoggerFactory.getLogger(RmsApplication.class);
 	public static void main(String[] args) {
 		logger.info("App started");
 		SpringApplication.run(RmsApplication.class, args);
