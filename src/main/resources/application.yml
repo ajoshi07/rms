@@ -1,0 +1,37 @@
+Spring:
+  profiles:
+    Active: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/rms?zeroDateTimeBehavior=convertToNull
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+  Jpa:
+    hibernate:
+      ddl-auto: update
+
+
+Server:
+  Port: 8080
+
+url: https://surcharge.free.beeceptor.com/surcharge
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics,health,info
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+          semaphore:
+            maxConcurrentRequests: 20
+      circuitBreaker:
+        requestVolumeThreshold: 40
+        sleepWindowInMilliseconds: 5000
+        errorThresholdPercentage: 50
